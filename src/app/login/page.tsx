@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import LoginComponent from "../../components/LoginComponent";
 
 const Login = () => {
@@ -5,7 +6,9 @@ const Login = () => {
     <main>
       <h1>Login</h1>
       <hr />
-      <LoginComponent />
+      <Suspense fallback={<div>Loading...</div>}>
+        <LoginComponent />
+      </Suspense>
     </main>
   );
 };
