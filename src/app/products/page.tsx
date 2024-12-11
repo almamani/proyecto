@@ -2,24 +2,9 @@ import { IProduct } from "@/interfaces/IProduct";
 import { getProducts } from "@/services/productService";
 import Card from "@/components/Card";
 
-export async function getStaticProps() {
-  let productsFound: IProduct[] = [];
+const Products = async () => {
+  const productsFound: IProduct[] = await getProducts();
 
-  try {
-    productsFound = await getProducts();
-  } catch (error) {
-    console.error("Error fetching products:", error);
-  }
-
-  return {
-    props: {
-      productsFound,
-    },
-    revalidate: 10,
-  };
-}
-
-const Products = ({ productsFound }: { productsFound: IProduct[] }) => {
   return (
     <main>
       <h1>Products</h1>
