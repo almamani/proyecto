@@ -48,21 +48,13 @@ const Home = () => {
         <h2 className="mx-20 mb-2">Featured Products</h2>
         <hr />
 
-        {featuredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-11/12 mx-auto my-4">
-            {featuredProducts.map((product: IProduct) => (
-              <div key={product.id} className="card">
-                <Card product={product} />
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="flex justify-center items-center mt-6">
-            <h2 className="text-pink-basic text-center">
-              Sorry, we could not load the products. Please try again later.
-            </h2>
-          </div>
-        )}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-11/12 mx-auto my-4">
+          {featuredProducts.map((product: IProduct) => (
+            <div key={product.id} className="card">
+              <Card product={product} />
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   );

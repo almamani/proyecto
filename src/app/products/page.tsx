@@ -7,24 +7,20 @@ const Products = async () => {
 
   return (
     <main>
-      <h1>Products</h1>
-      <hr />
-      <br />
-      {productsFound.length > 0 ? (
-        <div className="wrapper pb-8 grid md:grid-cols-4 gap-10">
-          {productsFound.map((product: IProduct) => (
-            <div key={product.id}>
-              <Card product={product} />
-            </div>
-          ))}
+      <div className="container">
+        <h1>Products</h1>
+        <hr />
+        <br />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-11/12 mx-auto my-4">
+          {productsFound.map((product: IProduct) => {
+            return (
+              <div className="card" key={product.id}>
+                <Card product={product} />
+              </div>
+            );
+          })}
         </div>
-      ) : (
-        <div className="wrapper flex justify-center items-center mt-6">
-          <h2 className="text-pink-basic text-center">
-            Sorry, we could not load the products. Please try again later.
-          </h2>
-        </div>
-      )}
+      </div>
     </main>
   );
 };
